@@ -1,7 +1,11 @@
 window.onload = () => {
-    debugger;
+    // debugger
+
     view.displayTodos();
-    interactions.setUpEventListeners();
-    
+
     return true;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    eventListeners();
+});
