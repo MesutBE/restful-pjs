@@ -1,8 +1,5 @@
 window.onload = () => {
-    // debugger
-
     view.displayTodos();
-
     return true;
 }
 

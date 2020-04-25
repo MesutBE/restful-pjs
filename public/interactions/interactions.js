@@ -1,19 +1,3 @@
-// var interactions = {
-//     setUpEventListeners: function () {
-//         // debugger
-//         let todoUl = document.querySelector("ul");
-//         todoUl.addEventListener("click", function (event) {
-            
-//             let elementClicked = event.target;
-
-//             if (elementClicked.className === "deleteButton") {
-//                 debugger
-//                 handlers.deleteTodos(parseInt(elementClicked.parentNode.id));
-//             }
-//         });
-//     }
-// }
-
 function eventListeners() {
     const btnToggleAll = document.getElementById("toggle-all");
     const btnAddTodo = document.getElementById("add-todo");
