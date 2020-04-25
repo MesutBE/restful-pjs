@@ -1,6 +1,6 @@
 debugger;
 
-(async function RESTfulFetchExample() {
+async function RESTfulFetchExample() {
 
   const start = Date.now();
   const timedMsg = (msg) => `${Date.now() - start} ms.: ${msg}`;
@@ -220,5 +220,5 @@ debugger;
     .catch(err => console.log(timedMsg('response' + exampleStep12), err));
 
 
-})();
+};
 
