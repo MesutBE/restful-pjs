@@ -1,7 +1,7 @@
 // LOGIC
 var todoList = {
     
-    todos: entries,
+    todos: '',
 
     addTodo: async function (inputTodoText) {
         
@@ -14,7 +14,6 @@ var todoList = {
         })
             .then(res => res.json())
             .then(data => console.log('Adding Todo.. results: \n', data))
-            .then(view.displayTodos)
             .catch(err => console.log(err));
     },
     changeTodo: async function (position, newValue) {
@@ -28,17 +27,14 @@ var todoList = {
         })
             .then(res => res.json())
             .then(data => console.log('Updating Todo.. results: \n', data))
-            .then(view.displayTodos)
             .catch(err => console.log(err));
     },
     deleteTodo: async function (position) {
-        // debugger
         fetch(`/todos/${position}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
-            .then(data => console.log('Deleting Todo.. results: \n', data)) //.then(view.displayTodos)
-            .then(view.displayTodos)
+            .then(data => console.log('Deleting Todo.. results: \n', data))
             .catch(err => console.log(err));
     },
     toggleCompleted: async function (position) {
@@ -48,7 +44,6 @@ var todoList = {
         await fetch(`/todos?id=${position}`)
             .then(res => res.json())
             .then(data => {
-                // debugger
                 currentCompleted = data[0].completed;
             })
             .catch(err => console.log(err));
@@ -62,7 +57,6 @@ var todoList = {
         })
             .then(res => res.json())
             .then(data => console.log('Updating Todo.. results: \n', data))
-            .then(view.displayTodos)
             .catch(err => console.log(err));
     },
     makeCompletedAllTrueOrFalse: async function (position, newValue) {
@@ -97,7 +91,6 @@ var todoList = {
         .then(res => res.json())
         .then(async data => {
             // console.log(data.length);
-            // debugger
             if (data.every(obj => obj.completed === true)){
                 for (const obj of data){
                     await todoList.makeCompletedAllTrueOrFalse(obj.id, false)
@@ -112,36 +105,35 @@ var todoList = {
                 // data.forEach(async obj => await todoList.makeCompletedAllTrueOrFalse(obj.id, true));
             }
         })
-        .then(view.displayTodos)
         .catch(err => console.log(err));
     }
 };
 
-// The code below will be updated soon..
-class Todos {
-    id = null;
-    completed = null;
-    todoText = '';
+// // The code below will be updated soon..
+// class Todos {
+//     id = null;
+//     completed = null;
+//     todoText = '';
 
-    constructor(body, completed = false) {
-        this.todoText = body;
-        this.completed = completed;
-    }
-    addTodo(todo) {
+//     constructor(body, completed = false) {
+//         this.todoText = body;
+//         this.completed = completed;
+//     }
+//     addTodo(todo) {
 
-    }
-    changeTodo(position, newValue) {
+//     }
+//     changeTodo(position, newValue) {
 
-    }
-    deleteTodo(position) {
+//     }
+//     deleteTodo(position) {
 
-    }
-    toggleCompleted(position) {
+//     }
+//     toggleCompleted(position) {
 
-    }
-    toggleAll() {
+//     }
+//     toggleAll() {
 
-    }
-}
+//     }
+// }
 
 

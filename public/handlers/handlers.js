@@ -31,7 +31,6 @@ class UI {
         toggleCompletedPositionInput.value = "";
     }
     toggleAll () {
-        debugger
         todoList.toggleAll();
     }
 }

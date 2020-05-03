@@ -3,30 +3,51 @@ var view = {
         var todosUl = document.getElementById("fetch-results");
         todosUl.innerHTML = "";
 
-        fetch('/todos', {
-            method: 'GET',
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                
-                for (let todo of data) {
-                    var todoLi = document.createElement("li");
-                    var todoTextWithCompletion = "";
+        Todos.findAll().then(todos => {
+            console.log(todos);
 
-                    if (todo.completed === true) {
-                        todoTextWithCompletion = "(x) " + todo.todoText;
-                    } else {
-                        todoTextWithCompletion = "( ) " + todo.todoText;
-                    }
+            for (let todo of todos) {
+                var todoLi = document.createElement("li");
+                var todoTextWithCompletion = "";
 
-                    todoLi.id = todo.id;
-                    todoLi.textContent = todoTextWithCompletion;
-                    todoLi.appendChild(view.createDeleteButton());
-                    todosUl.appendChild(todoLi);
+                if (todo.completed === true) {
+                    todoTextWithCompletion = "(x) " + todo.todoText;
+                } else {
+                    todoTextWithCompletion = "( ) " + todo.todoText;
                 }
-            })
+
+                todoLi.id = todo.id;
+                todoLi.textContent = todoTextWithCompletion;
+                todoLi.appendChild(view.createDeleteButton());
+                todosUl.appendChild(todoLi);
+            }
+        })
             .catch(err => console.log(err));
+
+        // fetch('/todos', {
+        //     method: 'GET',
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+                
+        //         for (let todo of data) {
+        //             var todoLi = document.createElement("li");
+        //             var todoTextWithCompletion = "";
+
+        //             if (todo.completed === true) {
+        //                 todoTextWithCompletion = "(x) " + todo.todoText;
+        //             } else {
+        //                 todoTextWithCompletion = "( ) " + todo.todoText;
+        //             }
+
+        //             todoLi.id = todo.id;
+        //             todoLi.textContent = todoTextWithCompletion;
+        //             todoLi.appendChild(view.createDeleteButton());
+        //             todosUl.appendChild(todoLi);
+        //         }
+        //     })
+        //     .catch(err => console.log(err));
 
         
     },
@@ -37,3 +58,9 @@ var view = {
         return deleteButton;
     },
 };
+
+class Todos {
+    static findAll() {
+        return fetch('/todos').then(res => res.json());
+    }
+}
