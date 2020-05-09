@@ -80,20 +80,27 @@ This project builded in first step by following `https://watchandcode.com` tutor
 
 ### Second Step
 
-#### User Story 12 - Refactoring
+#### User Story 1 - Setup
 
 - Create development-strategy file.
 - Rename html file to `index.html`.
-- Create file `init.js` and refactor necessary codes.
 - Create folder `app`
 - Create folder `data`
 - Create folder `handlers`
 - Create folder `interactions`
 - Create folder `view`
 - Create folder `style`
+
+#### User Story 2 - Refactoring
+
+- Create file `init.js` and refactor necessary codes.
 - Create file `app.js` and refactor necessary codes.
 - Create file `entries.js` and refactor necessary codes.
 - Create file `handlers.js` and refactor necessary codes.
 - Create file `interactions.js` and refactor necessary codes.
 - Create file `view.js` and refactor necessary codes.
 - Create file `style.css` and create new styles.
+
+#### User Story 3 - Complete readme file
+
+* Complete `readme.md` for more details about the project.

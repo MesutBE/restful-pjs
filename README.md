@@ -36,7 +36,7 @@ Clone this repository and follow [INSTRUCTIONS.md](./INSTRUCTIONS.md).
 
 ## Development Strategy
 
-To see [development-strategy.md](./development-strategy.md).
+To see [development-strategy.md](../public/development-strategy.md).
 
 ## Screen Capture of Project
 
